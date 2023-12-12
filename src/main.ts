@@ -8,7 +8,7 @@ async function bootstrap() {
   app.setGlobalPrefix('/api')
   app.useLogger(app.get(WINSTON_LOGGER_TOKEN));
   app.enableCors({
-    origin: 'http://9.135.224.61:3002',
+    origin: 'https://manage.bitjian.cn/',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type, Accept',
     credentials: true,
