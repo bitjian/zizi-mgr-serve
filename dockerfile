@@ -1,11 +1,11 @@
 # build stage
-FROM node:18-alpine3.14 as build-stage
+FROM node:18.19.0-alpine3.19 as build-stage
 
 WORKDIR /app
 
 COPY package.json .
 
-RUN npm config set registry https://registry.npmmirror.com/
+RUN npm config set registry https://mirrors.cloud.tencent.com/npm/
 
 RUN npm install
 
@@ -14,7 +14,7 @@ COPY . .
 RUN npm run build
 
 # production stage
-FROM node:18-alpine3.14 as production-stage
+FROM node:18.19.0-alpine3.19 as production-stage
 
 ARG db_host
 ARG db_pass
@@ -29,7 +29,7 @@ ENV db_host=${db_host} \
     db_pass=${db_pass} \
     db_user=${db_user} 
 
-RUN npm install --production
+RUN npm install --only=production --omit=dev
 
 Run npm install pm2 -g
 
