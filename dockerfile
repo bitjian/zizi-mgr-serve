@@ -29,7 +29,7 @@ ENV db_host=${db_host} \
     db_pass=${db_pass} \
     db_user=${db_user} 
 
-RUN npm install --only=production --omit=dev
+RUN npm install --omit=dev
 
 Run npm install pm2 -g
 
