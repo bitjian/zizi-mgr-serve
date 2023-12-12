@@ -31,7 +31,7 @@ ENV db_host=${db_host} \
 
 RUN npm install --omit=dev
 
-Run npm install pm2 -g
+RUN npm install pm2 -g
 
 EXPOSE 3000
 
