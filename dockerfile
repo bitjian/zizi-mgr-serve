@@ -29,6 +29,8 @@ ENV db_host=${db_host} \
     db_pass=${db_pass} \
     db_user=${db_user} 
 
+RUN npm config set registry https://registry.npmmirror.com/
+
 RUN npm install --omit=dev
 
 RUN npm install pm2 -g
