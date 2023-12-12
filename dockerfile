@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY package.json .
 
-RUN npm config set registry https://mirrors.cloud.tencent.com/npm/
+RUN npm config set registry https://registry.npmmirror.com/
 
 RUN npm install
 
