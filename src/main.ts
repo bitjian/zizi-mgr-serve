@@ -4,8 +4,12 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import {WINSTON_LOGGER_TOKEN} from './winston/winston.module'
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule,{
-    cors:true
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  app.enableCors({
+    origin: 'https://www.bitjian.cn',
+    methods: 'GET,HEAD,POST,OPTION',
+    allowedHeaders: '*',
+    credentials: false,
   });
   app.setGlobalPrefix('/api')
   app.useLogger(app.get(WINSTON_LOGGER_TOKEN));
