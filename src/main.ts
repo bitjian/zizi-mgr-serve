@@ -6,7 +6,7 @@ import {WINSTON_LOGGER_TOKEN} from './winston/winston.module'
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.enableCors({
-    origin: 'https://www.bitjian.cn',
+    origin: 'https://manage.bitjian.cn',
     methods: 'GET,HEAD,POST,OPTION',
     allowedHeaders: '*',
     credentials: false,
